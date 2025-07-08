@@ -347,6 +347,7 @@ pipeline {
 						dir('eclipse.platform.swt') {
 							sh '''
 								mvn clean verify \
+									-Ddevelocity.storage.directory=${WORKSPACE}/.m2/.develocity \
 									--batch-mode --threads 1C -V -U -e \
 									-Pbree-libs -Papi-check -Pjavadoc \
 									-Dcompare-version-with-baselines.skip=false \
